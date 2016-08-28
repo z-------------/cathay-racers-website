@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="100"
+   height="100"
+   id="svg3040">
+  <defs
+     id="defs3042" />
+  <metadata
+     id="metadata3045">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-952.36218)"
+     id="layer1">
+    <g
+       id="g4517">
+      <path
+         d="m 0,975.08945 50,40.90905 49.999999,-40.90905 0,-9.09091 -99.999999,0 0,9.09091 z M 0,1030.7679 24.556662,1003.4874 0,981.35332 0,1030.7679 z m 99.999999,0.667 -25.246359,-27.8526 25.246359,-21.89939 0,49.75199 z M 50,1023.9126 29.545454,1006.9076 0,1038.7258 l 99.999999,0 L 70.408767,1006.9076 50,1023.9126 z"
+         id="common_email_envelope_mail_glyph"
+         style="fill:#ffffff;stroke:none" />
+    </g>
+  </g>
+</svg>
