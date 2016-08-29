@@ -134,13 +134,13 @@ function scrollSpy(target){
     var id = target || currentSection();
     if (id && (location.hash !== "#" + id || !document.querySelector("nav a.current") || target)) {
         history.pushState(null, null, "#" + id);
-        document.title = document.querySelector("#" + id + " h2").textContent + " - SC Racers";
+        document.title = document.querySelector("#" + id + " h2").textContent + " - Cathay Racers";
         [].slice.call(navLinkElems).forEach(function(elem){
             elem.classList.remove("current");
         });
         document.querySelector("nav a[href='#" + id + "']").classList.add("current");
     } else if (!id && location.href.indexOf("#") !== -1) {
-        document.title = "SC Racers";
+        document.title = "Cathay Racers";
         history.pushState("", document.title, location.pathname + location.search);
 
         [].slice.call(navLinkElems).forEach(function(elem){

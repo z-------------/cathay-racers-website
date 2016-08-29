@@ -4,14 +4,26 @@ html
         meta(charset="utf-8")
         title Cathay Racers
         meta(name="description", content="An F1 In Schools collaboration team between Hong Kong and China, competing in the 2016 World Finals in Austin, Texas.")
+
+        //- open graph stuff
         meta(property="og:title", content="Cathay Racers")
         meta(property="og:site_name", content="Cathay Racers")
         meta(property="og:url", content="http://sc-racers.co.nf/")
         meta(property="og:description", content="An F1 In Schools collaboration team between Hong Kong and China, competing in the 2016 World Finals in Austin, Texas.")
-        meta(property="og:image", content="http://www.googledrive.com/host/0B_GNFzfKHBwPa1dEdTBHejVBcGM")
+        meta(property="og:image", content="/assets/img/logo/logo-icon-noshell-orangebg.png")
+
+        //- favicon
+        link(rel="icon" type="image/x-icon" href="/assets/img/logo/logo-favicon.png")
+
+        //- viewport
         meta(name="viewport", content="width=device-width, height=device-height, initial-scale=1")
+
+        //- stylesheet
         link(rel="stylesheet", href="style.css")
-        link(href="http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700", rel="stylesheet", type="text/css")
+
+        //- fonts
+        link(href="https://fonts.googleapis.com/css?family=Lato:300,400", rel="stylesheet", type="text/css")
+        link(href="/assets/fonts/leaguespartan-bold/stylesheet.css", rel="stylesheet", type="text/css")
     body
         header
             object.logo(type="image/svg+xml", data="/assets/img/logo/logo-text-white.svg")
@@ -20,8 +32,9 @@ html
                 a(data-scroll, data-icon="people", href="#team") Who are we?
                 a(data-scroll, data-icon="quilt", href="#news") News
                 a(data-scroll, data-icon="info", href="#f1is") About F1 In Schools
+                a(data-scroll, data-icon="business", href="#sponsors") Sponsors
                 a(data-scroll, data-icon="work", href="#support-us") Support us
-                a(data-scroll, data-icon="email", href="#contact") Contact us
+                a(data-scroll, data-icon="chat", href="#contact") Contact us
         .banner-links-container
             a.banner-link(data-scroll="", href="#f1is") What is F1 In Schools?
             a.banner-link(data-scroll="", href="#support-us") Sponsorship
@@ -30,6 +43,8 @@ html
             h2 Who are we?
             p.
                 We are Cathay Racers, an F1 In Schools national collaboration team between Hong Kong and China, competing in the 2016 World Finals in Austin, Texas.
+            p.
+                We are from The Experimental High School Attached to Beijing Normal University and Sha Tin College, Hong Kong.
             ul.members-container.nobullet
                 li
                     .member-photo
@@ -86,30 +101,38 @@ html
                 a.banner-link.twitter(href="https://twitter.com/Cathay_Racers", target="_blank") Follow us on Twitter
                 a.banner-link.facebook(href="https://www.facebook.com/CathayRacers", target="_blank") Like us on Facebook
 
-        section#f1is(data-bg="/assets/img/wf-2014-blurred.jpg")
+        section#f1is(data-bg="/assets/img/backgrounds/wf-2014-blurred.jpg")
             h2 F1 in Schools
             .flex-container
-                img(src="/assets/img/f1-in-schools-white.png")
+                img(src="/assets/img/f1-in-schools/f1-in-schools-white.png")
                 div
                     p.
                         F1 in Schools is an international competition set out to provide an amazing but very challenging educational experience through the magnetic appeal of Formula One. The competition is the only global multi-disciplinary challenge for students aged 9-19 and is now recognised as the world's largest STEM (Science, Technology, Engineering and Mathematics) competition.
                     p.
                         Students work in teams of between 3 and 6, each taking on an assigned role that fulfils the necessary components of the competition.
-                    p
-                        | Learn more at the
-                        a(href="http://www.f1inschools.com/", target="_blank") F1 in Schools website
-                        | .
+                    p.
+                        Learn more at the #[a(href="http://www.f1inschools.com/", target="_blank") F1 in Schools website].
+
+        section#sponsors
+            h2 Sponsors
+            p.
+                We are very grateful to receive the support of these great organizations. Without them, we wouldn't be able to realize our dream of competing in the F1 in Schools 2016 World Finals in Austin, Texas.
+            .flex-grid.medium
+                .sponsor-logo
+                    img(src="/assets/img/sponsors/China Gold Coin.svg")
+                .sponsor-logo
+                    img(src="/assets/img/sponsors/Kamtonn.svg")
+                .sponsor-logo
+                    img(src="/assets/img/sponsors/Dersun.svg")
+                .sponsor-logo
+                    img(src="/assets/img/sponsors/IECC.svg")
 
         section#support-us
-            // h2 Our sponsors
-            //p.
-            //    We are proud to be working with these great companies and organizations and we are very grateful for their support.
-            //.sponsors-container
             h2 Support us
             .flex-container
                 div
                     p.
-                        We are going to compete in the F1 in Schools 2016 World Finals in Austin, and we need to raise funds in order to compete and succeed.
+                        We are going to compete in the F1 in Schools 2016 World Finals in Austin, Texas, and we need to raise funds in order to compete and succeed.
                     p.
                         The competition will involve (among other things) acquiring resources and equipment that we need to achieve our goal.
                     p Some of the things that need to be funded:
@@ -123,7 +146,7 @@ html
                     a.button.big(href="/assets/docs/Cathay Racers sponsorship letter 2016.pdf", target="_blank") View sponsorship letter
                     a.button.big(href="/assets/docs/Cathay Racers sponsor proposal 2016.pdf", target="_blank") View sponsor proposal
 
-        section#contact(data-bg="/assets/img/racetrack-blurred.jpg")
+        section#contact(data-bg="/assets/img/backgrounds/racetrack-blurred.jpg")
             h2 Contact us
             .flex-container
                 div
@@ -135,29 +158,24 @@ html
                     button(title="This will open your default email client.") Send
 
         .banner-links-container
-            a.banner-link.email.hasicon.contact_email {email}
+            a.banner-link.smaller.email.hasicon.contact_email(target="_blank") {email}
             a.banner-link.whatsapp.hasicon.contact_whatsapp {phone}
             a.banner-link.twitter.hasicon(href="https://twitter.com/Cathay_Racers", target="_blank") @Cathay_Racers
             a.banner-link.facebook.hasicon(href="https://www.facebook.com/CathayRacers", target="_blank") fb.com/CathayRacers
         footer
             .footer-logo
             p This entire website hand-made by Cathay Racers themselves
-            p
-                a(href="https://www.google.com/fonts/specimen/Titillium+Web", target="_blank") Titillium Web font by Accademia di Belle Arti di Urbino
-                | ,
-                a(href="http://masonry.desandro.com", target="_blank") Masonry by desandro
-                | ,
-                a(href="https://github.com/twitter/twitter-text", target="_blank") Twitter Text Library by Twitter
-                | ,
-                a(href="https://github.com/cferdinandi/smooth-scroll", target="_blank") Smooth Scroll by cferdinandi
-                | ,
-                a(href="https://google.github.io/material-design-icons", target="_blank") Material Design icons by Google
-                | .
-            p
-                | In the spirit of openness, the code is
-                a(href="https://github.com/z-------------/cathay-racers-website/", target="_blank") all on GitHub
-                | .
+            p.
+                #[a(href="http://www.latofonts.com/lato-free-fonts", target="_blank") Lato font by tyPoland],
+                #[a(href="https://www.theleagueofmoveabletype.com/league-spartan", target="_blank") League Spartan font by The League of Moveable Type],
+                #[a(href="https://www.linotype.com/90672/avenir-next-family.html", target="_blank") Avenir Next font by Adrian Frutiger and Akira Kobayashi],
+                #[a(href="http://masonry.desandro.com/", target="_blank") Masonry by desandro],
+                #[a(href="https://github.com/twitter/twitter-text", target="_blank") Twitter Text Library by Twitter],
+                #[a(href="https://github.com/cferdinandi/smooth-scroll", target="_blank") Smooth Scroll by cferdinandi],
+                #[a(href="https://design.google.com/icons/", target="_blank") Material icons by Google].
+            p.
+                In the spirit of openness, the code is #[a(href="https://github.com/z-------------/cathay-racers-website/", target="_blank") all on GitHub].
         script(src="/assets/js/twitter-text.min.js")
         script(src="/assets/js/masonry.pkgd.min.js")
         script(src="script.js")
-        script(src="/assets/js/smooth-scroll.min.js", async="", onload="smoothScroll.init(smoothScrollOptions);")
+        script(src="/assets/js/smooth-scroll.min.js", async, onload="smoothScroll.init(smoothScrollOptions);")
