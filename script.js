@@ -30,6 +30,8 @@ var decodeHTML = function(str){
     return elem.textContent;
 };
 
+var scrollThrottleTicking = false;
+
 /* spinning logo on hover */
 
 (function(){
@@ -78,63 +80,72 @@ setInterval(function(){
 
 /* highlight nav links */
 
-function currentSection(){
-    var sections = document.querySelectorAll("section");
+function currentSection() {
+    if (window.scrollY === 0) {
+        return false;
+    } else {
+        var sections = document.querySelectorAll("section");
 
-    var contenders = [];
+        var contenders = [];
 
-    for (var s = 0; s < sections.length; s++) {
-        var elem = sections[s];
-        var item = {
-            elem: elem,
-            onScreen: (function(elem){
-                // elem array
-                var eArr = [];
-                for (var e = elem.offsetTop; e <= elem.offsetTop + elem.offsetHeight; e++) {
-                    eArr.push(e);
-                }
-
-                // screen array
-                var sArr = [];
-                for (var s = window.scrollY; s <= window.scrollY + window.innerHeight; s++) {
-                    sArr.push(s);
-                }
-
-                // calculate overlap
-                var overlap = [];
-
-                eArr.forEach(function(v){
-                    if (sArr.indexOf(v) !== -1) {
-                        overlap.push(v)
+        for (var s = 0; s < sections.length; s++) {
+            var elem = sections[s];
+            var item = {
+                elem: elem,
+                onScreen: (function(elem){
+                    // elem array
+                    var eArr = [];
+                    for (var e = elem.offsetTop; e <= elem.offsetTop + elem.offsetHeight; e++) {
+                        eArr.push(e);
                     }
-                });
 
-                return (overlap[overlap.length - 1] - overlap[0])
-            })(elem)
-        };
-        contenders.push(item);
-    }
+                    // screen array
+                    var sArr = [];
+                    for (var s = window.scrollY; s <= window.scrollY + window.innerHeight; s++) {
+                        sArr.push(s);
+                    }
 
-    contenders = contenders.filter(function(item){
-        return isFinite(item.onScreen);
-    });
+                    // calculate overlap
+                    var overlap = [];
 
-    contenders.sort(function(a, b){
-        if (a.onScreen > b.onScreen) {
-            return -1;
-        } else if (b.onScreen > a.onScreen) {
-            return 1;
+                    eArr.forEach(function(v){
+                        if (sArr.indexOf(v) !== -1) {
+                            overlap.push(v)
+                        }
+                    });
+
+                    return (overlap[overlap.length - 1] - overlap[0])
+                })(elem)
+            };
+            contenders.push(item);
         }
-    });
 
-    if (contenders[0]) {
-        return contenders[0].elem.getAttribute("id");
+        contenders = contenders.filter(function(item){
+            return isFinite(item.onScreen);
+        });
+
+        contenders.sort(function(a, b){
+            if (a.onScreen > b.onScreen) {
+                return -1;
+            } else if (b.onScreen > a.onScreen) {
+                return 1;
+            }
+        });
+
+        if (contenders[0]) {
+            return contenders[0].elem.getAttribute("id");
+        }
+
+        return false;
     }
     return false;
 }
 
 function scrollSpy(target){
     var id = target || currentSection();
+
+    // console.log("scrollSpy", target, currentSection(), id);
+
     if (id && (location.hash !== "#" + id || !document.querySelector("nav a.current") || target)) {
         history.pushState(null, null, "#" + id);
         document.title = document.querySelector("#" + id + " h2").textContent + " - Cathay Racers";
@@ -152,11 +163,18 @@ function scrollSpy(target){
     }
 }
 
-setInterval(function(){
-    if (!smoothScrolling) {
-        scrollSpy();
+// scroll event throttling from MDN: https://developer.mozilla.org/en-US/docs/Web/Events/scroll
+window.addEventListener("scroll", function(e) {
+    if (!scrollThrottleTicking) {
+        window.requestAnimationFrame(function() {
+            if (!smoothScrolling) {
+                scrollSpy();
+            }
+            scrollThrottleTicking = false;
+        });
     }
-}, 100);
+    scrollThrottleTicking = true;
+});
 
 /* automatic member photos */
 
