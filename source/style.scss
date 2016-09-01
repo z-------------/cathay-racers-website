@@ -315,7 +315,7 @@ section.wide .banner-links-container {
     width: calc(50% - 10px);
     background-color: #ddd;
     color: #555;
-    padding: 18px 50px;
+    padding: 30px 50px;
     height: 91px;
     overflow: hidden;
     font-size: 2em;
@@ -323,12 +323,13 @@ section.wide .banner-links-container {
     margin: 5px;
     position: relative;
     font-weight: 300;
+    line-height: 1;
 
     transition-property: background, color;
 
     &.smaller {
         font-size: 1.7em;
-        padding-top: 22px;
+        padding-top: 33px;
     }
 
     &[href] {
