@@ -53,6 +53,9 @@ header {
     align-content: center;
     justify-content: center;
     height: 500px;
+
+    position: relative;
+    z-index: 3;
 }
 
 .logo {
@@ -152,40 +155,100 @@ ul, ol {
 }
 
 aside {
+    $aside-width: 70px;
+
     position: absolute;
     top: 500px;
     right: 0;
     background-color: #fff;
-    width: 70px;
+    width: $aside-width;
     height: 100%;
-    overflow: hidden;
     z-index: 2;
 
     &.float {
         position: fixed;
         top: 0;
     }
+
+    .nav-logo, nav {
+        position: absolute;
+        left: 0;
+
+        transform: translateY(- $aside-width);
+        transition-property: transform;
+    }
+
+    .nav-logo {
+        top: 0;
+    }
+
+    nav {
+        top: $aside-width;
+    }
+
+    &.float .nav-logo, &.float nav {
+        transform: translateY(0);
+    }
 }
 
 nav a {
     display: block;
+    position: relative;
     padding-right: 70px;
-    color: transparent;
     background-size: 40px;
     height: 70px;
-    overflow: hidden;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     box-shadow: inset 0 0 transparent;
 
     transition-property: box-shadow, background;
 
-    &:hover {
-        box-shadow: inset 5px 0 rgba(0, 0, 0, .2);
-    }
-
     &.current {
         box-shadow: inset 5px 0 $color-main;
-        background-color: rgba(0, 0, 0, .05);
+        background-color: #F3F3F3;
+
+        &:hover {
+            box-shadow: inset 0 0 transparent;
+        }
+    }
+
+    span {
+        display: block;
+        position: absolute;
+        right: 100%;
+        top: 0;
+        padding: 1.5em;
+        line-height: 1;
+        pointer-events: none;
+
+        font-family: $font-heading;
+        font-weight: 500;
+
+        background-color: #FFFFFF;
+        height: 100%;
+        white-space: nowrap;
+
+        max-width: none;
+
+        transform: translateX(50px);
+        opacity: 0;
+        box-shadow: inset 0 0 transparent;
+
+        transition-property: transform, opacity, box-shadow, background;
+    }
+
+    &:hover span {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    &.current span {
+        box-shadow: inset 5px 0 $color-main;
+        background-color: #F3F3F3;
     }
 }
 
@@ -306,6 +369,10 @@ section.wide .banner-links-container {
         &.whatsapp:hover {
             background-color: #2AB200;
         }
+
+        &.instagram:hover {
+            background-color: #E4405F;
+        }
     }
 
     &.hasicon {
@@ -321,7 +388,7 @@ section.wide .banner-links-container {
             top: 0;
         }
 
-        @each $medium in twitter, facebook, email, whatsapp {
+        @each $medium in twitter, facebook, email, whatsapp, instagram {
             &.#{$medium} {
                 &:before {
                     background-image: url(/assets/img/contact/#{$medium}-color.svg);
@@ -612,6 +679,10 @@ footer {
             display: block;
         }
 
+        nav {
+            top: 0;
+        }
+
         nav a {
             display: inline-block;
             width: 70px;
@@ -620,9 +691,17 @@ footer {
                 box-shadow: inset 0 -5px rgba(0, 0, 0, .2)
             }
 
-            &.current {
+            &.current, &.current:hover {
                 box-shadow: inset 0 -5px $color-main;
             }
+
+            span {
+                display: none;
+            }
+        }
+
+        .nav-logo {
+            display: none;
         }
     }
 

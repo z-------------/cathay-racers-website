@@ -23,18 +23,25 @@ html
 
         //- fonts
         link(href="https://fonts.googleapis.com/css?family=Lato:300,400", rel="stylesheet", type="text/css")
-        link(href="/assets/fonts/leaguespartan-bold/stylesheet.css", rel="stylesheet", type="text/css")
+        link(href="/assets/fonts/avenirnext/stylesheet.css", rel="stylesheet", type="text/css")
     body
         header
             object.logo(type="image/svg+xml", data="/assets/img/logo/logo-text-white.svg")
         aside
+            object.nav-logo(type="image/svg+xml", data="/assets/img/logo/logo-icon-noshell-orangebg.svg")
             nav
-                a(data-scroll, data-icon="people", href="#team") Who are we?
-                a(data-scroll, data-icon="quilt", href="#news") News
-                a(data-scroll, data-icon="info", href="#f1is") About F1 In Schools
-                a(data-scroll, data-icon="business", href="#sponsors") Sponsors
-                a(data-scroll, data-icon="work", href="#support-us") Support us
-                a(data-scroll, data-icon="chat", href="#contact") Contact us
+                a(data-scroll, data-icon="people", href="#team")
+                    span Who are we?
+                a(data-scroll, data-icon="new", href="#news")
+                    span News
+                a(data-scroll, data-icon="info", href="#f1is")
+                    span About F1 In Schools
+                a(data-scroll, data-icon="business", href="#sponsors")
+                    span Sponsors
+                a(data-scroll, data-icon="work", href="#support-us")
+                    span Support us
+                a(data-scroll, data-icon="chat", href="#contact")
+                    span Contact us
         .banner-links-container
             a.banner-link(data-scroll="", href="#f1is") What is F1 In Schools?
             a.banner-link(data-scroll="", href="#support-us") Sponsorship
@@ -167,12 +174,12 @@ html
             a.banner-link.whatsapp.hasicon.contact_whatsapp {phone}
             a.banner-link.twitter.hasicon(href="https://twitter.com/Cathay_Racers", target="_blank") @Cathay_Racers
             a.banner-link.facebook.hasicon(href="https://www.facebook.com/CathayRacers", target="_blank") fb.com/CathayRacers
+            a.banner-link.instagram.hasicon(href="https://www.instagram.com/cathayracers", target="_blank") @CathayRacers
         footer
             .footer-logo
             p This entire website hand-made by Cathay Racers themselves
             p.
                 #[a(href="http://www.latofonts.com/lato-free-fonts", target="_blank") Lato font by tyPoland],
-                #[a(href="https://www.theleagueofmoveabletype.com/league-spartan", target="_blank") League Spartan font by The League of Moveable Type],
                 #[a(href="https://www.linotype.com/90672/avenir-next-family.html", target="_blank") Avenir Next font by Adrian Frutiger and Akira Kobayashi],
                 #[a(href="http://masonry.desandro.com/", target="_blank") Masonry by desandro],
                 #[a(href="https://github.com/twitter/twitter-text", target="_blank") Twitter Text Library by Twitter],

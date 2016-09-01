@@ -1,0 +1,22 @@
+{
+  "name": "cathay-racers-website",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z-------------/cathay-racers-website.git"
+  },
+  "author": "Zachary Guard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/z-------------/cathay-racers-website/issues"
+  },
+  "homepage": "https://github.com/z-------------/cathay-racers-website#readme",
+  "dependencies": {
+    "autoprefixer": "^6.4.0",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-pug": "^3.0.4",
+    "gulp-sass": "^2.3.2"
+  }
+}

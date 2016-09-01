@@ -53,7 +53,10 @@ transition: transform 3s;\
 /* floating nav */
 
 setInterval(function(){
-    if (window.pageYOffset >= 500) {
+    if (
+        window.pageYOffset >= 500 ||
+        (navigator.userAgent.toLowerCase().indexOf("mobile") !== -1 && window.pageYOffset >= 250)
+   ) {
         asideElem.classList.add("float");
     } else {
         asideElem.classList.remove("float");
@@ -162,7 +165,6 @@ setInterval(function(){
     var name = elem.querySelector(".member-name").textContent;
 
     photoElem.style.backgroundImage = "url('/assets/img/members/" + name + ".png')";
-    console.log("url(/assets/img/members/" + name + ".png)");
 });
 
 /* section background images */
