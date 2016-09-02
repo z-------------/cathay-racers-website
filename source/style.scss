@@ -374,6 +374,10 @@ section.wide .banner-links-container {
         &.instagram:hover {
             background-color: #E4405F;
         }
+
+        &.messenger:hover {
+            background-color: #0084FF;
+        }
     }
 
     &.hasicon {
@@ -389,7 +393,7 @@ section.wide .banner-links-container {
             top: 0;
         }
 
-        @each $medium in twitter, facebook, email, whatsapp, instagram {
+        @each $medium in twitter, facebook, email, whatsapp, instagram, messenger {
             &.#{$medium} {
                 &:before {
                     background-image: url(/assets/img/contact/#{$medium}-color.svg);
