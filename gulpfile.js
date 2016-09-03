@@ -8,7 +8,7 @@ gulp.task("sass", function() {
     var sass = require("gulp-sass");
 
     return gulp.src("./source/style.scss")
-        .pipe(sass().on("error", sass.logError))
+        .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
         .pipe(postcss([ autoprefixer({ browsers: ["last 2 versions"] }) ]))
         .pipe(gulp.dest("./"));
 });
