@@ -148,7 +148,12 @@ function scrollSpy(target){
 
     if (id && (location.hash !== "#" + id || !document.querySelector("nav a.current") || target)) {
         history.pushState(null, null, "#" + id);
-        document.title = document.querySelector("#" + id + " h2").textContent + " - Cathay Racers";
+
+        var title = document.querySelector("#" + id + " h2")
+            ? document.querySelector("#" + id + " h2").textContent
+            : id[0].toUpperCase() + id.substring(1);
+
+        document.title = title + " - Cathay Racers";
         [].slice.call(navLinkElems).forEach(function(elem){
             elem.classList.remove("current");
         });
@@ -187,7 +192,11 @@ window.addEventListener("scroll", function(e) {
 
 /* section background images */
 
-[].slice.call(document.querySelectorAll("section[data-bg]")).forEach(function(elem){
+[].slice.call(document.querySelectorAll("[data-bg]")).forEach(function(elem){
+    if (elem.tagName.toLowerCase() !== "section") {
+        elem.classList.add("background-host");
+    }
+
     var imgUrl = elem.dataset.bg;
 
     var bgElem = document.createElement("div");
@@ -262,33 +271,6 @@ if (
     });
 }
 
-/* initialisms */
-
-// function initialismChange(){
-//     var wordElems = [].slice.call(initialismWordElem.children);
-//
-//     if (initialismWordElem.querySelector(".current")) {
-//         var oldWordElem = initialismWordElem.querySelector(".current");
-//         var newWordElem = wordElems[wordElems.indexOf(oldWordElem) + 1] || wordElems[0];
-//         var nextWordElem = wordElems[wordElems.indexOf(newWordElem) + 1] || wordElems[0];
-//
-//         oldWordElem.classList.remove("current");
-//         oldWordElem.classList.add("prev");
-//
-//         newWordElem.classList.remove("next");
-//         newWordElem.classList.add("current");
-//
-//         nextWordElem.classList.remove("prev");
-//         nextWordElem.classList.add("next");
-//     } else {
-//         wordElems[0].classList.add("current");
-//         wordElems[1].classList.add("next");
-//     }
-// }
-//
-// initialismChange();
-// setInterval(initialismChange, 2000);
-
 /* smoothScroll stuff */
 
 var smoothScrolling = false;
@@ -302,6 +284,12 @@ var smoothScrollOptions = {
         smoothScrolling = false;
     }
 };
+
+/* insert gallery images */
+
+// [].slice.call(document.querySelectorAll(".carousel_item[data-image]")).forEach(function(elem) {
+//     elem.style.backgroundImage = "url(" + elem.dataset.image + ")";
+// });
 
 /* insert 'sensitive' contact info */
 

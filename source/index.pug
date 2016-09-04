@@ -22,8 +22,11 @@ html
         link(rel="stylesheet", href="style.css")
 
         //- fonts
-        link(href="https://fonts.googleapis.com/css?family=Lato:300,400", rel="stylesheet", type="text/css")
+        link(href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic", rel="stylesheet", type="text/css")
         link(href="/assets/fonts/avenirnext/stylesheet.css", rel="stylesheet", type="text/css")
+
+        //- flickity
+        link(rel="stylesheet", href="/assets/lib/flickity/flickity.css", media="screen")
     body
         header
             object.logo(type="image/svg+xml", data="/assets/img/logo/logo-text-white.svg")
@@ -33,6 +36,8 @@ html
             nav
                 a(data-scroll, data-icon="people", href="#team")
                     span Who are we?
+                a(data-scroll, data-icon="gallery", href="#gallery")
+                    span Gallery
                 a(data-scroll, data-icon="new", href="#news")
                     span News
                 a(data-scroll, data-icon="info", href="#f1is")
@@ -49,12 +54,14 @@ html
 
         section#team.no-bottom-padding
             h2 Who are we?
-            p.
+            p.big.
                 We are Cathay Racers, an F1 In Schools national collaboration team between Hong Kong and China, competing in the 2016 World Finals in Austin, Texas.
-            p.
+            p.big.
                 We are from the Experimental High School Attached to Beijing Normal University and Sha Tin College, Hong Kong.
+            p.big.
+                Our team colors, orange and blue, symbolize technology, innovation, modernity and the unity between China and Hong Kong.
 
-            .flex-container.flex-container--free-width.flex-container--space-around
+            .flex-container.flex-container--free-width.flex-container--space-around.big-number-container
                 .big-number(data-text="country") 1
                 .big-number(data-text="cities") 2
                 .big-number(data-text="members") 6
@@ -97,18 +104,16 @@ html
                     .member-role Communications Manager
                     p.member-bio.
                         As the Communications Manager, it is my responsibility to set up and maintain all communication channels between the team members, sponsors, and the general public. This includes activating and updating the team’s social media and website. I feel that I am suited for this job because I enjoy working with computers and software. I am also good at finding imaginative and efficient solutions regarding communication issues. I believe in my role because I feel that good communication is the key to success.
-            //- .initialism-container
-            //-     div
-            //-         .initialism-letter S
-            //-         span is for
-            //-         .initialism-word
-            //-             div speed
-            //-             div spirit
-            //-             div science
-            //-             div innovation
-            //-             div style
-            //-             div simplicity
-
+        .quote(data-quotee="Henry Petroski").
+            Science is about knowing; engineering is about doing.
+        section#gallery.wide.no-top-padding
+            .carousel(data-flickity='{ "wrapAround": true, "bgLazyLoad": 2, "autoPlay": 5000 }')
+                -
+                    filenames = ["hk-nfs-0", "hk-nfs-1", "cnc",
+                                 "spray", "hk-nfs-awards", "hk-nfs-pit-display",
+                                 "aerodynamics", "fungus-sketch", "harfitt-car"]
+                each filename in filenames
+                    .carousel_item(data-flickity-bg-lazyload="/assets/img/gallery/" + filename + ".jpg")
         section#news.wide.no-bottom-padding
             h2 News
             ol.news-container
@@ -122,12 +127,13 @@ html
                 img(src="/assets/img/f1-in-schools/f1-in-schools-white.png")
                 div
                     p.
-                        F1 in Schools is an international competition set out to provide an amazing but very challenging educational experience through the magnetic appeal of Formula One. The competition is the only global multi-disciplinary challenge for students aged 9-19 and is now recognized as the world's largest STEM (Science, Technology, Engineering and Mathematics) competition.
+                        F1 in Schools is an international competition affiliated with set out to provide an amazing but very challenging educational experience through the magnetic appeal of Formula One. The competition is the only global multi-disciplinary challenge for students aged 9-19 and is now recognized as the world's largest STEM (Science, Technology, Engineering and Mathematics) competition.
                     p.
                         Students work in teams of between 3 and 6, each taking on an assigned role that fulfils the necessary components of the competition.
                     p.
                         Learn more at the #[a(href="http://www.f1inschools.com/", target="_blank") F1 in Schools website].
-
+        .quote(data-quotee="Arthur C. Clarke").
+            Any sufficiently advanced technology is indistinguishable from magic.
         section#sponsors
             h2 Sponsors
             p.
@@ -188,15 +194,19 @@ html
             .footer-logo
             p This entire website hand-made by Cathay Racers themselves
             p.
-                #[a(href="http://www.latofonts.com/lato-free-fonts", target="_blank") Lato font by tyPoland],
-                #[a(href="https://www.linotype.com/90672/avenir-next-family.html", target="_blank") Avenir Next font by Adrian Frutiger and Akira Kobayashi],
-                #[a(href="http://masonry.desandro.com/", target="_blank") Masonry by desandro],
-                #[a(href="https://github.com/twitter/twitter-text", target="_blank") Twitter Text Library by Twitter],
-                #[a(href="https://github.com/cferdinandi/smooth-scroll", target="_blank") Smooth Scroll by cferdinandi],
+                #[a(href="http://www.latofonts.com/lato-free-fonts", target="_blank") Lato font by tyPoland].
+                #[a(href="https://www.linotype.com/90672/avenir-next-family.html", target="_blank") Avenir Next font by Adrian Frutiger and Akira Kobayashi].
+                #[a(href="http://masonry.desandro.com/", target="_blank") Masonry by desandro].
+                #[a(href="https://github.com/twitter/twitter-text", target="_blank") Twitter Text Library by Twitter].
+                #[a(href="https://github.com/cferdinandi/smooth-scroll", target="_blank") Smooth Scroll by cferdinandi].
+                #[a(href="http://flickity.metafizzy.co/", target="_blank") Flickity by Metafizzy].
                 #[a(href="https://design.google.com/icons/", target="_blank") Material icons by Google].
             p.
                 In the spirit of openness, the code is #[a(href="https://github.com/z-------------/cathay-racers-website/", target="_blank") all on GitHub].
-        script(src="/assets/js/twitter-text.min.js")
-        script(src="/assets/js/masonry.pkgd.min.js")
+
+        script(src="/assets/lib/twitter-text.min.js")
+        script(src="/assets/lib/masonry.pkgd.min.js")
         script(src="script.js")
-        script(src="/assets/js/smooth-scroll.min.js", async, onload="smoothScroll.init(smoothScrollOptions);")
+        script(src="/assets/lib/smooth-scroll.min.js", async, onload="smoothScroll.init(smoothScrollOptions)")
+        script(src="/assets/lib/flickity/flickity.pkgd.min.js")
+        script(src="/assets/lib/flickity/bg-lazyload.js")

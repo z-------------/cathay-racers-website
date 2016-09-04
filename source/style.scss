@@ -10,6 +10,12 @@ $font-heading: "Avenir Next", "Avenir", "League Spartan", $font-sans;
     to { transform: rotate(1turn); }
 }
 
+@mixin forceFillWidth {
+    width: calc(100% + 200px);
+    max-width: none;
+    margin-left: -100px;
+}
+
 *, :before, :after {
     box-sizing: inherit;
     margin: 0;
@@ -42,7 +48,7 @@ body {
     box-sizing: border-box;
     background-color: #f1f1f1;
     font-family: $font-body;
-    font-size: 17px;
+    font-size: 15px;
     color: $color-body;
     overflow-x: hidden;
     line-height: 1.5;
@@ -80,7 +86,7 @@ p a {
     }
 }
 
-section, footer {
+section, footer, .quote {
     width: calc(100% - 70px);
 }
 
@@ -94,13 +100,17 @@ section {
         padding-right: 0;
     }
 
+    &.no-top-padding {
+        padding-top: 0;
+    }
+
     &.no-bottom-padding {
         padding-bottom: 0;
     }
 
     &[data-bg] {
-        color: #fff;
-        background-color: #000;
+        color: #FFFFFF;
+        background-color: #000000;
 
         > *:not(.section-bg-image) {
             position: relative;
@@ -116,6 +126,21 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
+}
+
+.background-host {
+    position: relative;
+    color: #FFFFFF;
+    background-color: #000000;
+    margin-top: -50px;
+    padding: 50px 0;
+
+    @include forceFillWidth;
+
+    > *:not(.section-bg-image) {
+        position: relative;
+        z-index: 1;
+    }
 }
 
 h2, h3, h4, h5, h6 {
@@ -134,6 +159,12 @@ p {
     margin: 1.2em auto;
     max-width: 700px;
 
+    &.big {
+        font-size: 1.3em;
+        font-family: $font-heading;
+        text-align: justify;
+    }
+
     &:first-child {
         margin-top: 0;
     }
@@ -141,6 +172,12 @@ p {
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+.colored-bg {
+    background-color: $color-main;
+    color: #FFFFFF;
+    @include forceFillWidth;
 }
 
 .cursor-help {
@@ -206,10 +243,6 @@ nav a {
     padding-right: 70px;
     background-size: 40px;
     height: 70px;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 
     box-shadow: inset 0 0 transparent;
@@ -230,7 +263,7 @@ nav a {
         position: absolute;
         right: 100%;
         top: 0;
-        padding: 1.5em;
+        padding: 1.8em 1.5em;
         line-height: 1;
         pointer-events: none;
 
@@ -281,28 +314,6 @@ input, textarea, button {
 textarea {
     resize: vertical;
     height: 200px;
-}
-
-button {
-    cursor: pointer;
-    position: relative;
-    padding-right: 40px;
-
-    &:after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin: 12px 10px;
-        width: 20px;
-        height: 20px;
-        background-image: url(/assets/img/ui/rarr.svg);
-    }
-
-    &:hover {
-        background: $color-main;
-        color: #fff;
-    }
 }
 
 input, textarea {
@@ -416,6 +427,30 @@ section.wide .banner-links-container {
     }
 }
 
+.quote {
+    padding: 1em 100px;
+
+    background-color: $color-main;
+    color: #FFFFFF;
+
+    text-align: center;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1.15;
+
+    &:after {
+        content: attr(data-quotee);
+
+        display: block;
+        margin-top: 0.5em;
+
+        font-size: 0.7em;
+        font-style: italic;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
 .flex-container {
     display: flex;
     align-items: flex-start;
@@ -461,6 +496,11 @@ section.wide .banner-links-container {
     }
 }
 
+.big-number-container {
+    margin-top: 50px;
+    padding-bottom: 25px;
+}
+
 .big-number {
     $fontsize: 7.5;
 
@@ -490,6 +530,7 @@ section.wide .banner-links-container {
 
         font-size: 0.2em;
         font-weight: 400;
+        font-family: $font-body;
         color: $color-body;
         text-transform: uppercase;
     }
@@ -546,7 +587,6 @@ section.wide .banner-links-container {
 .member-bio {
     margin-top: 20px;
     clear: both;
-    font-size: 0.9em;
 }
 
 a.button {
@@ -629,11 +669,10 @@ footer {
     font-size: 4em;
     font-weight: 300;
     padding: 100px;
-    width: calc(100% + 200px);
-    max-width: none;
     margin-top: 50px;
-    margin-left: -100px;
     line-height: 1;
+
+    @include forceFillWidth;
 
     div {
         display: flex;
@@ -681,13 +720,23 @@ footer {
     }
 }
 
+.carousel {
+    .carousel_item {
+        width: 100%;
+        height: 700px;
+
+        background-size: cover;
+        background-position: center;
+    }
+}
+
 .comic-sans {
     font-family: "Comic Sans MS", sans-serif;
     color: $color-main;
 }
 
 @media only screen and (max-width: 720px) {
-    section, footer {
+    section, footer, .quote {
         width: 100%;
     }
 
@@ -696,6 +745,12 @@ footer {
     }
 
     footer {
+        $padding: 20px;
+        padding-left: $padding;
+        padding-right: $padding;
+    }
+
+    .quote {
         $padding: 20px;
         padding-left: $padding;
         padding-right: $padding;
@@ -756,7 +811,10 @@ footer {
         top: 0;
         width: 100%;
         height: 70px;
+
         overflow-x: scroll;
+        overflow-y: hidden;
+
         display: none;
 
         &.float {
@@ -848,5 +906,11 @@ footer {
     .members-container li {
         margin-left: 0;
         margin-right: 0;
+    }
+
+    .carousel {
+        .carousel_item {
+            height: 300px;
+        }
     }
 }
