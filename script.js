@@ -227,7 +227,7 @@ function displayTwitterStream(data){
             var body = decodeHTML(post.description);
             if (body.indexOf("http://t.co/") !== -1) body = body.substring(0, body.lastIndexOf("http://t.co/"));
 
-            elem.innerHTML = "<p>" + twttr.txt.autoLink(body) + "</p>";
+            elem.innerHTML = "<p>" + twttr.txt.autoLink(body) + "</p><div class='post_meta'><date>" + new Date(post.pubDate).toLocaleDateString() + "</date> • <a href='" + post.link + "' target='_blank'>view on Twitter</a></div>";
             if (post.enclosure && post.enclosure.type === "image/png") {
                 elem.innerHTML = "<img src='" + post.enclosure.url + "'>" + elem.innerHTML;
                 elem.querySelector("img").addEventListener("load", function(){
@@ -259,6 +259,7 @@ if (
     var yqlUrl = "https://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent(query) + "&format=json";
     xhr(yqlUrl, function(r){
         r = JSON.parse(r);
+        console.log(r);
         if (r && r.query && r.query.results && r.query.results.item) {
             var twitterData = r.query.results.item;
             displayTwitterStream(twitterData);

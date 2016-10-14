@@ -705,10 +705,28 @@ a.button {
         width: 350px;
         margin: 5px 0;
         text-align: left;
+
+        .post_meta {
+            padding: 0 20px;
+            padding-bottom: 10px;
+            font-size: 0.8em;
+            color: rgba($color-body, 0.5);
+
+            a {
+                color: rgba($color-main, 0.7);
+
+                transition-property: color;
+
+                &:hover {
+                    color: $color-main;
+                }
+            }
+        }
     }
 
     p {
         padding: 20px;
+        padding-bottom: 10px;
         margin: 0;
     }
 
