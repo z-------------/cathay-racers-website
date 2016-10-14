@@ -149,7 +149,7 @@ h2, h3, h4, h5, h6 {
 
 h2 {
     font-size: 3em;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     padding: 30px 0;
     line-height: 1.1;
@@ -268,7 +268,7 @@ nav a {
         pointer-events: none;
 
         font-family: $font-heading;
-        font-weight: 500;
+        font-weight: 600;
 
         background-color: #FFFFFF;
         height: 100%;
@@ -430,12 +430,13 @@ section.wide .banner-links-container {
 .quote {
     padding: 1em 100px;
 
+    font-family: $font-heading;
     background-color: $color-main;
     color: #FFFFFF;
 
     text-align: center;
     font-size: 2em;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.15;
 
     &:after {
@@ -445,8 +446,7 @@ section.wide .banner-links-container {
         margin-top: 0.5em;
 
         font-size: 0.7em;
-        font-style: italic;
-        font-weight: 300;
+        font-weight: 500;
         color: rgba(255, 255, 255, 0.8);
     }
 }
@@ -643,6 +643,7 @@ section.wide .banner-links-container {
 
 .member-name {
     font-size: 1.5em;
+    font-weight: 600;
     margin: 25px 0 10px 0;
 }
 
@@ -660,6 +661,8 @@ section.wide .banner-links-container {
     float: left;
     margin-right: 20px;
     margin-bottom: 10px;
+
+    background-color: #e3241e;
 }
 
 .member-bio {
