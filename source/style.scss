@@ -436,7 +436,7 @@ section.wide .banner-links-container {
 
     text-align: center;
     font-size: 2em;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.15;
 
     &:after {
@@ -1010,6 +1010,14 @@ footer {
     .carousel {
         .carousel_item {
             height: 300px;
+        }
+    }
+
+    .car {
+        flex-direction: column;
+
+        .car_middle {
+            padding: 20px;
         }
     }
 }
