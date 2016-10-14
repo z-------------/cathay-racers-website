@@ -49,6 +49,8 @@ html
                     span Who are we?
                 a(data-scroll, data-icon="gallery", href="#gallery")
                     span Gallery
+                a(data-scroll, data-icon="car", href="#car")
+                    span Our car
                 a(data-scroll, data-icon="new", href="#news")
                     span News
                 a(data-scroll, data-icon="info", href="#f1is")
@@ -125,6 +127,33 @@ html
                                  "aerodynamics", "fungus-sketch", "harfitt-car"]
                 each filename in filenames
                     .carousel_item(data-flickity-bg-lazyload="/assets/img/gallery/" + filename + ".jpg")
+
+        section#car.wide
+            h2 Our car: CR03
+            .car
+                .car_left
+                    .car_feature
+                        h3 Friction-free
+                        p CR03 has undergone rigorous testing and experimentation in order to reduce friction.
+                    .car_feature
+                        h3 Wheels
+                        p CR03's wheels use carbon fiber pipe for the surface and ABS plastic for the spokes, ensuring a smooth surface, high durability, and low mass.
+                    .car_feature
+                        h3 Chassis
+                        p We've combined our experience with durability and aerodynamics to make a car with the best of both worlds.
+                .car_middle
+                    img(src="/assets/img/car/up-right.png", alt="Image of CR03")
+                .car_right
+                    .car_feature
+                        h3 Rear airfoil
+                        p By creating an area of low pressure below CR03, it stays on the track even at high speeds.
+                    .car_feature
+                        h3 Interior ballast
+                        p Small slabs of iron are inserted to fine-tune the weight and balance of the car. One of the many innovative elements of CR03.
+                    .car_feature
+                        h3 Nose cone
+                        p CR03's nose cone is inspired by the cutting-edge design used by modern fighter jets.
+
         section#news.wide.no-bottom-padding
             h2 News
             ol.news-container

@@ -497,6 +497,83 @@ section.wide .banner-links-container {
     }
 }
 
+#car {
+    background-color: $color-main;
+    color: #ffffff;
+}
+
+.car {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .car_left, .car_right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 500px;
+        height: 100%;
+
+        .car_feature {
+            margin: 10px 20px;
+
+            h3 {
+                font-size: 1.5em;
+                color: $color-main;
+                background-color: #ffffff;
+                padding: 0.3em 0.5em;
+
+                height: 46px;
+
+                position: relative;
+
+                &:after { /* triangle */
+                    content: "";
+
+                    position: absolute;
+                    top: 0;
+
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                }
+            }
+
+            h3, p {
+                margin: 0.2em 0;
+            }
+        }
+    }
+
+    .car_left {
+        text-align: right;
+
+        h3:after { /* triangle */
+            left: 0;
+            border-width: 46px 0 0 46px;
+            border-color: transparent transparent transparent $color-main;
+        }
+
+        p {
+            padding-right: 0.75em;
+        }
+    }
+
+    .car_right {
+        h3:after { /* triangle */
+            right: 0;
+            border-width: 0 46px 46px 0;
+            border-color: transparent $color-main transparent transparent;
+        }
+
+        p {
+            padding-left: 0.75em;
+        }
+    }
+}
+
 .big-number-container {
     margin-top: 50px;
     padding-bottom: 25px;
