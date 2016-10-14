@@ -7,7 +7,14 @@
 
 @font-face {
     font-family: "Avenir Next";
+    src: url("AvenirNext-DemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
     src: url("AvenirNext-Bold.ttf") format("truetype");
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
 }
