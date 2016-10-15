@@ -339,3 +339,22 @@ Object.keys(contactInfo).forEach(function(key){
         });
     });
 });
+
+/* preload social link hover SVGs */
+
+(function() {
+    var contactSVGsToPreload = [
+        "email-white", "facebook-white", "instagram-white",
+        "messenger-white", "twitter-white"
+    ];
+
+    var SVGPreloadContainer = document.createElement("div");
+    SVGPreloadContainer.classList.add("invisible");
+    document.body.appendChild(SVGPreloadContainer);
+
+    for (name of contactSVGsToPreload) {
+        var preloadElem = document.createElement("img");
+        preloadElem.src = "/assets/img/contact/" + name + ".svg";
+        SVGPreloadContainer.appendChild(preloadElem);
+    }
+}());
